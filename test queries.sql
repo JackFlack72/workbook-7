@@ -24,3 +24,14 @@ select customer_id, first_name, last_name, customer.address_id as customer_addre
 from customer
 inner join address on customer.address_id = address.address_id;
 
+select customer_id, first_name, last_name, customer.address_id as customer_address_id, address.address_id as address_address_id, address, postal_code, city_id
+from customer
+inner join address on customer.address_id = address.address_id;
+
+-- question 1 from joins exercise
+use northwind;
+
+select productid, productname, unitprice, categoryname, products.categoryid as products_category_id, categories.categoryid as categories_category_id
+from products
+inner join categories on products.categoryid = categories.categoryid
+order by categoryname, productname;
