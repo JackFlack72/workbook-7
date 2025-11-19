@@ -31,7 +31,7 @@ select orderid
 from `order details`
 where productid in (select productid
 				  from products
-				  where productname like "sasquach ale");
+				  where productname like "sasquatch ale");
 
 #  4. What is the name of the employee that sold order 10266?
 
