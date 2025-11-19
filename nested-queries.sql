@@ -4,7 +4,7 @@ use northwind;
       HINT: Find the max price in a subquery and then use that value to find products whose
       price equals that value.
 */
-select productname
+select productname, unitprice
 from products
 where unitprice = (select max(unitprice)
 				   from products
@@ -18,8 +18,8 @@ where unitprice = (select max(unitprice)
 select orderid, shipname, shipaddress
 from orders
 where shipvia in (select shipperid
-				   from shippers
-                   where companyname like "%federal shipping%");
+				  from shippers
+				  where companyname like "%federal shipping%");
 
 /* 3. What are the order ids of the orders that ordered "Sasquatch Ale"? HINT:
 	  Find the product id of "Sasquatch Ale" in a subquery and then use that
@@ -30,10 +30,19 @@ where shipvia in (select shipperid
 select orderid
 from `order details`
 where productid in (select productid
-				  from products
-				  where productname like "sasquatch ale");
+				    from products
+				    where productname like "sasquatch ale");
 
 #  4. What is the name of the employee that sold order 10266?
-
+select employeeid, firstname, lastname
+from employees
+where employeeid in (select employeeid
+					 from orders
+					 where orderid = 10266);
 
 #  5. What is the name of the customer that bought order 10266?
+select customerid, contactname
+from customers
+where customerid in (select customerid
+					 from orders
+					 where orderid = 10266);
