@@ -28,6 +28,7 @@ select customer_id, first_name, last_name, customer.address_id as customer_addre
 from customer
 inner join address on customer.address_id = address.address_id;
 
+
 -- question 1 from joins exercise
 use northwind;
 
@@ -35,3 +36,11 @@ select productid, productname, unitprice, categoryname, products.categoryid as p
 from products
 inner join categories on products.categoryid = categories.categoryid
 order by categoryname, productname;
+
+
+use sakila;
+
+select rental_id, rental_date, rental.customer_id, customer.customer_id, customer.first_name, customer.last_name
+from rental
+inner join customer
+on rental.customer_id = customer.customer_id;
