@@ -45,7 +45,7 @@ from rental
 inner join customer
 on rental.customer_id = customer.customer_id;
 
-
+#insert
 use sakila;
 
 insert into country
@@ -57,6 +57,7 @@ values('Mario World', now());
 select *
 from country;
 
+#update
 use sakila;
 
 UPDATE customer
@@ -74,3 +75,12 @@ SET first_name = 'PATRICE'
 WHERE first_name = 'PATTY';
 
 SET SQL_SAFE_UPDATES=1;
+
+#delete
+use sakila;
+
+delete from country
+where country_id = 110;
+
+select * 
+from country;
