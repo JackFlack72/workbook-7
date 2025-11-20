@@ -46,3 +46,13 @@ inner join customer
 on rental.customer_id = customer.customer_id;
 
 
+use sakila;
+
+insert into country
+values(110, 'Zimbabwe', now());
+
+insert into country (country, last_update)
+values('Mario World', now());
+
+select *
+from country;
